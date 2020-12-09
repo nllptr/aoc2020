@@ -6,6 +6,7 @@ const {
 const { findMatch2, findMatch3 } = require("./day1/puzzle");
 const { validator, rule2 } = require("./day2/puzzle");
 const { newSlope, readMap, run, runMany } = require("./day3/puzzle");
+const day4 = require("./day4/puzzle");
 
 let input = loadInputNumbers("./day1/input.txt");
 match2 = findMatch2(input, 2020);
@@ -28,3 +29,6 @@ console.log(
     newSlope(1, 2),
   ]).reduce((product, factor) => product * factor, 1)
 );
+
+input = loadInputSingleString("./day4/input.txt");
+console.log(day4.processBatch(day4.newValidator(day4.rule), input));
