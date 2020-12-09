@@ -12,3 +12,7 @@ exports.loadInputNumbers = (path) => {
 exports.loadInputStrings = (path) => {
   return fs.readFileSync(path, "utf8").split("\n");
 };
+
+exports.loadInputSingleString = (path) => {
+  return fs.readFileSync(path, "utf8");
+};
