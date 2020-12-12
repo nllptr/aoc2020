@@ -54,6 +54,6 @@ const findMySpot = (input) => {
 module.exports = {
   binaryPartitioner,
   decoder,
-  findHighestId,
-  findMySpot,
+  runPart1: findHighestId,
+  runPart2: findMySpot,
 };
