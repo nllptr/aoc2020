@@ -1,4 +1,4 @@
-const mapper = (line) => {
+const lineMapper = (line) => {
   const [limits, letter, password] = line.split(" ");
   const [num1, num2] = limits.split("-");
   return {
@@ -7,6 +7,10 @@ const mapper = (line) => {
     letter: letter.slice(0, 1),
     password: password,
   };
+};
+
+const mapper = (input) => {
+  return input.trim().split("\n").map(lineMapper);
 };
 
 const rule = (pwObject) => {
@@ -28,12 +32,24 @@ const rule2 = (pwObject) => {
 
 const validator = (input, ruleFunc) => {
   const useRule = ruleFunc ? ruleFunc : rule;
-  return input.reduce((total, current) => {
-    return useRule(mapper(current)) ? total + 1 : total;
-  }, 0);
+  return mapper(input).reduce(
+    (total, current) => (useRule(current) ? total + 1 : total),
+    0
+  );
 };
 
+const runPart1 = (input) => {
+  return validator(input, rule);
+};
+
+const runPart2 = (input) => {
+  return validator(input, rule2);
+};
+
+exports.lineMapper = lineMapper;
 exports.mapper = mapper;
 exports.rule = rule;
 exports.rule2 = rule2;
 exports.validator = validator;
+exports.runPart1 = runPart1;
+exports.runPart2 = runPart2;

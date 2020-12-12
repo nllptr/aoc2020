@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "test": "jest",
-    "all": "node index.js"
+    "test": "jest --watchAll",
+    "all": "node src/index.js"
   },
   "devDependencies": {
     "@types/jest": "^26.0.16",

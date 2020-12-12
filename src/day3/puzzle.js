@@ -49,9 +49,22 @@ const runMany = (map, slopes) => {
   return slopes.map((slope) => run(map, slope));
 };
 
+const runPart1 = (input) => run(readMap(input), newSlope(3, 1));
+const runPart2 = (input) => {
+  return runMany(readMap(input), [
+    newSlope(1, 1),
+    newSlope(3, 1),
+    newSlope(5, 1),
+    newSlope(7, 1),
+    newSlope(1, 2),
+  ]).reduce((product, factor) => product * factor, 1);
+};
+
 exports.hasTree = hasTree;
 exports.isDone = isDone;
 exports.newSlope = newSlope;
 exports.readMap = readMap;
 exports.run = run;
 exports.runMany = runMany;
+exports.runPart1 = runPart1;
+exports.runPart2 = runPart2;

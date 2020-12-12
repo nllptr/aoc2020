@@ -1,4 +1,14 @@
-const { findMatch2, findMatch3 } = require("./puzzle");
+const { findMatch2, findMatch3, mapper } = require("./puzzle");
+
+test("mapper", () => {
+  const input = `
+1348
+1621
+1500
+1818`;
+
+  expect(mapper(input)).toStrictEqual([1348, 1621, 1500, 1818]);
+});
 
 test("findMatch2", () => {
   expect(findMatch2([1, 2, 3], 5)).toStrictEqual([2, 3]);
