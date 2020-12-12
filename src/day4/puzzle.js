@@ -59,10 +59,12 @@ const runPart2 = (input) => {
   return processBatch(newValidator(rule2), input);
 };
 
-exports.mapper = mapper;
-exports.newValidator = newValidator;
-exports.processBatch = processBatch;
-exports.rule = rule;
-exports.rule2 = rule2;
-exports.runPart1 = runPart1;
-exports.runPart2 = runPart2;
+module.exports = {
+  mapper,
+  newValidator,
+  processBatch,
+  rule,
+  rule2,
+  runPart1,
+  runPart2,
+};

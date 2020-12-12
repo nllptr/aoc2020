@@ -46,10 +46,12 @@ const runPart2 = (input) => {
   return validator(input, rule2);
 };
 
-exports.lineMapper = lineMapper;
-exports.mapper = mapper;
-exports.rule = rule;
-exports.rule2 = rule2;
-exports.validator = validator;
-exports.runPart1 = runPart1;
-exports.runPart2 = runPart2;
+module.exports = {
+  lineMapper,
+  mapper,
+  rule,
+  rule2,
+  validator,
+  runPart1,
+  runPart2,
+};

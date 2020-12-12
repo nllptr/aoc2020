@@ -60,11 +60,13 @@ const runPart2 = (input) => {
   ]).reduce((product, factor) => product * factor, 1);
 };
 
-exports.hasTree = hasTree;
-exports.isDone = isDone;
-exports.newSlope = newSlope;
-exports.readMap = readMap;
-exports.run = run;
-exports.runMany = runMany;
-exports.runPart1 = runPart1;
-exports.runPart2 = runPart2;
+module.exports = {
+  hasTree,
+  isDone,
+  newSlope,
+  readMap,
+  run,
+  runMany,
+  runPart1,
+  runPart2,
+};

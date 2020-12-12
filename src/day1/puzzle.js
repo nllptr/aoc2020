@@ -36,8 +36,10 @@ const runPart2 = (input) => {
   return match[0] * match[1] * match[2];
 };
 
-exports.mapper = mapper;
-exports.findMatch2 = findMatch2;
-exports.findMatch3 = findMatch3;
-exports.runPart1 = runPart1;
-exports.runPart2 = runPart2;
+module.exports = {
+  mapper,
+  findMatch2,
+  findMatch3,
+  runPart1,
+  runPart2,
+};

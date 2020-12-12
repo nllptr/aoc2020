@@ -1,5 +1,3 @@
-const { isExpressionWithTypeArguments } = require("typescript");
-
 const binaryPartitioner = (lowerLimit, upperLimit, choice) => {
   let result;
   switch (choice) {
@@ -53,7 +51,9 @@ const findMySpot = (input) => {
     }, undefined);
 };
 
-exports.binaryPartitioner = binaryPartitioner;
-exports.decoder = decoder;
-exports.findHighestId = findHighestId;
-exports.findMySpot = findMySpot;
+module.exports = {
+  binaryPartitioner,
+  decoder,
+  findHighestId,
+  findMySpot,
+};
