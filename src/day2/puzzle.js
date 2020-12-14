@@ -13,7 +13,7 @@ const mapper = (input) => {
   return input.trim().split("\n").map(lineMapper);
 };
 
-const rule = (pwObject) => {
+const defaultRule = (pwObject) => {
   numLetters = pwObject.password.split("").reduce((total, current) => {
     return current === pwObject.letter ? total + 1 : total;
   }, 0);
@@ -30,12 +30,14 @@ const rule2 = (pwObject) => {
   return numLetters == 1;
 };
 
-const validator = (input, ruleFunc) => {
-  const useRule = ruleFunc ? ruleFunc : rule;
-  return mapper(input).reduce(
-    (total, current) => (useRule(current) ? total + 1 : total),
-    0
-  );
+const validator = (ruleFunc = defaultRule) => {
+  return (input) => {
+    const useRule = ruleFunc ? ruleFunc : rule;
+    return mapper(input).reduce(
+      (total, current) => (useRule(current) ? total + 1 : total),
+      0
+    );
+  };
 };
 
 const runPart1 = (input) => {
@@ -49,9 +51,7 @@ const runPart2 = (input) => {
 module.exports = {
   lineMapper,
   mapper,
-  rule,
+  defaultRule,
   rule2,
   validator,
-  runPart1,
-  runPart2,
 };

@@ -6,27 +6,27 @@ const mapper = (input) => {
 };
 
 const matchTwo = (records, target) => {
-  for (i = 0; i < records.length; i++) {
-    for (j = i + 1; j < records.length; j++) {
-      if (records[i] + records[j] == target) return [records[i], records[j]];
+  for (const record1 of records) {
+    for (const record2 of records) {
+      if (record1 + record2 === target) return [record1, record2];
     }
   }
   return [];
 };
 
 const matchThree = (records, target) => {
-  for (i = 0; i < records.length; i++) {
-    for (j = i + 1; j < records.length; j++) {
-      for (k = j + 1; k < records.length; k++) {
-        if (records[i] + records[j] + records[k] == target)
-          return [records[i], records[j], records[k]];
+  for (const record1 of records) {
+    for (const record2 of records) {
+      for (const record3 of records) {
+        if (record1 + record2 + record3 === target)
+          return [record1, record2, record3];
       }
     }
   }
   return [];
 };
 
-const runner = (matcher) => {
+const runner = (matcher = matchTwo) => {
   return (input) => {
     return matcher(mapper(input), 2020).reduce(
       (product, current) => product * current,

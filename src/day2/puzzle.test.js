@@ -1,4 +1,10 @@
-const { lineMapper, mapper, rule, rule2, validator } = require("./puzzle");
+const {
+  lineMapper,
+  mapper,
+  defaultRule,
+  rule2,
+  validator,
+} = require("./puzzle");
 
 test("lineMapper", () => {
   expect(lineMapper("1-3 a: abcde")).toStrictEqual({
@@ -50,9 +56,9 @@ test("mapper", () => {
 });
 
 test("rule", () => {
-  expect(rule(lineMapper("1-3 a: abcde"))).toBe(true);
-  expect(rule(lineMapper("1-3 b: cdefg"))).toBe(false);
-  expect(rule(lineMapper("2-9 c: ccccccccc"))).toBe(true);
+  expect(defaultRule(lineMapper("1-3 a: abcde"))).toBe(true);
+  expect(defaultRule(lineMapper("1-3 b: cdefg"))).toBe(false);
+  expect(defaultRule(lineMapper("2-9 c: ccccccccc"))).toBe(true);
 });
 
 test("rule2", () => {
@@ -62,11 +68,11 @@ test("rule2", () => {
 });
 
 test("validator", () => {
-  expect(validator("1-3 a: abcde\n1-3 b: cdefg\n2-9 c: ccccccccc")).toBe(2);
+  expect(validator()("1-3 a: abcde\n1-3 b: cdefg\n2-9 c: ccccccccc")).toBe(2);
 });
 
 test("validator with new rule", () => {
-  expect(validator("1-3 a: abcde\n1-3 b: cdefg\n2-9 c: ccccccccc", rule2)).toBe(
+  expect(validator(rule2)("1-3 a: abcde\n1-3 b: cdefg\n2-9 c: ccccccccc")).toBe(
     1
   );
 });
