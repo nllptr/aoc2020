@@ -5,7 +5,7 @@ const mapper = (input) => {
     .map((item) => Number(item));
 };
 
-const findMatch2 = (records, target) => {
+const matchTwo = (records, target) => {
   for (i = 0; i < records.length; i++) {
     for (j = i + 1; j < records.length; j++) {
       if (records[i] + records[j] == target) return [records[i], records[j]];
@@ -14,7 +14,7 @@ const findMatch2 = (records, target) => {
   return [];
 };
 
-const findMatch3 = (records, target) => {
+const matchThree = (records, target) => {
   for (i = 0; i < records.length; i++) {
     for (j = i + 1; j < records.length; j++) {
       for (k = j + 1; k < records.length; k++) {
@@ -26,20 +26,18 @@ const findMatch3 = (records, target) => {
   return [];
 };
 
-const runPart1 = (input) => {
-  const match = findMatch2(mapper(input), 2020);
-  return match[0] * match[1];
-};
-
-const runPart2 = (input) => {
-  const match = findMatch3(mapper(input), 2020);
-  return match[0] * match[1] * match[2];
+const runner = (matcher) => {
+  return (input) => {
+    return matcher(mapper(input), 2020).reduce(
+      (product, current) => product * current,
+      1
+    );
+  };
 };
 
 module.exports = {
   mapper,
-  findMatch2,
-  findMatch3,
-  runPart1,
-  runPart2,
+  matchTwo,
+  matchThree,
+  runner,
 };

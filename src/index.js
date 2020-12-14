@@ -7,8 +7,10 @@ const day5 = require("./day5/puzzle");
 const day6 = require("./day6/puzzle");
 
 let input = loadInput("./day1/input.txt");
-console.log(day1.runPart1(input));
-console.log(day1.runPart2(input));
+let runner = day1.runner(day1.matchTwo);
+console.log(runner(input));
+runner = day1.runner(day1.matchThree);
+console.log(runner(input));
 
 input = loadInput("./day2/input.txt");
 console.log(day2.runPart1(input));
