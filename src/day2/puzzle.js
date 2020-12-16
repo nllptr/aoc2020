@@ -40,14 +40,6 @@ const validator = (ruleFunc = defaultRule) => {
   };
 };
 
-const runPart1 = (input) => {
-  return validator(input, rule);
-};
-
-const runPart2 = (input) => {
-  return validator(input, rule2);
-};
-
 module.exports = {
   lineMapper,
   mapper,
